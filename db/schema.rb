@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_28_164630) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_164630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["portfolio_id"], name: "index_collections_on_portfolio_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.float "price"
+    t.datetime "date_time"
+    t.bigint "collection_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_histories_on_collection_id"
   end
 
   create_table "nfts", force: :cascade do |t|
@@ -53,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_164630) do
   end
 
   add_foreign_key "collections", "portfolios"
+  add_foreign_key "histories", "collections"
   add_foreign_key "nfts", "collections"
   add_foreign_key "portfolios", "users"
 end
