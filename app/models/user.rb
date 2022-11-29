@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_one :portfolio
   after_create :create_portfolio
 
-  # private
+  private
 
   def create_portfolio
     Portfolio.create!(user: self)
