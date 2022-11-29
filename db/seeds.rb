@@ -7,18 +7,25 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "json"
 require "rest-client"
-response = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
-repos = JSON.parse(response)
+url_metadata = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+metadata = JSON.parse(url_metadata)
 
-yes = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/90d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
-reposs = JSON.parse(yes)
+url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/90d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+price_history = JSON.parse(url_price_history)
 
-p repos
-p reposs
-# collection1 = Collection.new(
-#   description:
-#   name:
+# p metadata
+# p price_history
 
-# )
+user = User.new(
+  email: "haogaoren13@gmail.com",
+  password: "123456"
+)
+user.save!
 
-# collection1.save!
+bored_ape_yacht_club = Collection.new(
+  description: metadata["data"]["attributes"]["description"],
+  name: metadata["data"]["attributes"]["name"],
+  portfolio_id: user.portfolio.id
+)
+bored_ape_yacht_club.save!
+p bored_ape_yacht_club
