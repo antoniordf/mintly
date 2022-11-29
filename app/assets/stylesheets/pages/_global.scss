@@ -1,0 +1,26 @@
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0px 20px;
+}
+
+.fa-solid {
+  font-size: 2rem;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  margin: 0px;
+}
+
+// Typography
+
+h1, h2, h3, p {
+  color: white;
+}

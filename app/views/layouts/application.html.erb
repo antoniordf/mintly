@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Mintly</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,10 +11,10 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render "shared/navbar" %>
+    <%# <p class="notice">= notice</p> %>
+    <%# <p class="alert"><%= alert</p> %>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <%= render "shared/navbar" %>
   </body>
 </html>
