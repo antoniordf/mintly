@@ -17,14 +17,16 @@ price_history = JSON.parse(url_price_history)
 # p price_history
 
 user = User.new(
-  email: "haogaoren13@gmail.com",
+  email: "haogaoren1198@gmail.com",
   password: "123456"
 )
 user.save!
 
 bored_ape_yacht_club = Collection.new(
-  description: metadata["data"]["attributes"]["description"],
   name: metadata["data"]["attributes"]["name"],
+  description: metadata["data"]["attributes"]["description"],
+  link: metadata["data"]["attributes"]["external_url"],
+  image: "https://i.seadn.io/gae/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs?auto=format&w=2048",
   portfolio_id: user.portfolio.id
 )
 bored_ape_yacht_club.save!
