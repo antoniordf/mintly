@@ -9,14 +9,16 @@ require "json"
 require "rest-client"
 response = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
 repos = JSON.parse(response)
-# => repos is an `Array` of `Hashes`.
 
-# repos.size
+yes = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/90d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+reposs = JSON.parse(yes)
+
 p repos
-collection1 = Collection.new(
-  description:
-  name:
-  
-)
+p reposs
+# collection1 = Collection.new(
+#   description:
+#   name:
 
-collection1.save!
+# )
+
+# collection1.save!
