@@ -20,6 +20,7 @@ user = User.new(
   email: "test@test.com",
   password: "123456"
 )
+user.save!
 
 bored_ape_yacht_club = Collection.create(
   name: metadata["data"]["attributes"]["name"],

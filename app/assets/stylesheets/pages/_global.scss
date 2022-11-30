@@ -28,11 +28,11 @@ h1, h2, h3, p {
 .card {
   display: flex;
   flex-direction: column;
-  border: 3px solid white;
   border-radius: 10px;
   padding: 10px;
   width: 60%;
   align-content: center;
   margin: auto;
   align-items: center;
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
 }
