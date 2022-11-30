@@ -3,7 +3,7 @@ a {
 }
 
 .container {
-  margin: 0px 5px;
+  margin: 0px 15px;
 }
 
 .fa-solid {
@@ -23,4 +23,16 @@ body {
 
 h1, h2, h3, p {
   color: white;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 60%;
+  align-content: center;
+  margin: auto;
+  align-items: center;
 }

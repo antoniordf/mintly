@@ -15,11 +15,8 @@ url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethere
 price_history = JSON.parse(url_price_history)
 p price_history
 
-# p metadata
-
-
 user = User.new(
-  email: "haogaoren1se111dd198@gmail.com",
+  email: "test@test.com",
   password: "123456"
 )
 user.save!
