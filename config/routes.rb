@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  resources :collections
   resources :portfolios, only: [:show] do
     resources :collections do
       resources :nfts
