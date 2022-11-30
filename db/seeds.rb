@@ -16,7 +16,6 @@ price_history = JSON.parse(url_price_history)
 # p price_history
 # p metadata
 
-
 user = User.create(
   email: "haogaoren1@gmail.com",
   password: "123456"
