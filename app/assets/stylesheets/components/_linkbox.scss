@@ -1,29 +1,29 @@
 .linkbox {
-  // border: 1px solid white;
   border-radius: 15px;
   background-color: rgb(45, 45, 45);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 360px;
   color: white;
   gap: 10px;
   box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
-  margin-top: 20px;
-  padding: 10px 0;
+  margin-bottom: 20px;
+
 }
 
 .collection-image {
   width: 100px;
   height: 55px;
   background-size: cover;
-  border-radius: 10px;
-  margin-left: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .collection-details {
   width: 100% ;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -33,7 +33,6 @@
 
   .info-detail {
     display: flex;
-    align-items: center;
   }
 
   .short-desc p {
@@ -52,5 +51,5 @@
 }
 
 .price {
-  margin: auto;
+  margin: auto 20px;
 }
