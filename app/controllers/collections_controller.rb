@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
 
   def index
-    @collections = Collections.all
+    @collections = Collection.all
   end
 
   def show
