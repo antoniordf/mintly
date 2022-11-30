@@ -36,8 +36,8 @@ p bored_ape_yacht_club
 
 bored_ape_yacht_club_hitory = History.new(
   price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000, ##24h price as a float
-  # date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] },  ##as an array
-  # date_time: price_history["included"][1]["attributes"]["history"].map { |price| price["time"] }, ##as an array
+  # date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] },  ##as an array (only work if change api addresses 24h to 7d)
+  # date_time: price_history["included"][1]["attributes"]["history"].map { |price| price["time"] }, ##as an array (only work if change api addresses 24h to 7d)
   collection_id: bored_ape_yacht_club.id
 )
 bored_ape_yacht_club_hitory.save!
