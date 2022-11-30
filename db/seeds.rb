@@ -18,8 +18,8 @@ collections = [
   "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
   "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB",
   "0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e",
-  "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
-  "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
+  # "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
+  # "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
   "0x34d85c9CDeB23FA97cb08333b511ac86E1C4E258",
   "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
   "0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270",
@@ -31,7 +31,7 @@ collections = [
 ]
 
 user = User.create!(
-  email: "haogaoren1se111dd198@gmail.com",
+  email: "test1@gmail.com",
   password: "123456"
 )
 
@@ -44,7 +44,6 @@ collections.each do |collection|
     description: metadata["data"]["attributes"]["description"],
     link: metadata["data"]["attributes"]["external_url"],
     image: metadata["data"]["attributes"]["image_url"],
-    portfolio: user.portfolio
   )
 
   url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/7d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
