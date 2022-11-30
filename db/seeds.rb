@@ -10,14 +10,16 @@ require "rest-client"
 url_metadata = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
 metadata = JSON.parse(url_metadata)
 
-url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/90d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/24h", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+# url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/7d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'} # 7days data for array
 price_history = JSON.parse(url_price_history)
+p price_history
 
 # p metadata
-# p price_history
+
 
 user = User.new(
-  email: "haogaoren1198@gmail.com",
+  email: "haogaoren1e111dd198@gmail.com",
   password: "123456"
 )
 user.save!
@@ -31,3 +33,13 @@ bored_ape_yacht_club = Collection.new(
 )
 bored_ape_yacht_club.save!
 p bored_ape_yacht_club
+
+bored_ape_yacht_club_hitory = History.new(
+  # p=price_history["included"][1]["attributes"]["history"],
+  price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000,  ##24h price as a float
+  # date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] },  ##as an array
+  # date_time: price_history["included"][1]["attributes"]["history"].map { |price| price["time"] }, ##as an array
+  collection_id: bored_ape_yacht_club.id
+)
+bored_ape_yacht_club_hitory.save!
+p bored_ape_yacht_club_hitory
