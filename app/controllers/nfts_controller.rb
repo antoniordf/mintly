@@ -24,7 +24,7 @@ class NftsController < ApplicationController
   end
 
   def edit
-    @collection = @nft.yacht
+    @collection = @nft.collection
   end
 
   def update
