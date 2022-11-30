@@ -19,7 +19,7 @@ p price_history
 
 
 user = User.new(
-  email: "haogaoren1e111dd198@gmail.com",
+  email: "haogaoren1se111dd198@gmail.com",
   password: "123456"
 )
 user.save!
@@ -35,8 +35,7 @@ bored_ape_yacht_club.save!
 p bored_ape_yacht_club
 
 bored_ape_yacht_club_hitory = History.new(
-  # p=price_history["included"][1]["attributes"]["history"],
-  price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000,  ##24h price as a float
+  price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000, ##24h price as a float
   # date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] },  ##as an array
   # date_time: price_history["included"][1]["attributes"]["history"].map { |price| price["time"] }, ##as an array
   collection_id: bored_ape_yacht_club.id
