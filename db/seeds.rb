@@ -10,10 +10,10 @@ require "rest-client"
 url_metadata = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
 metadata = JSON.parse(url_metadata)
 
-url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/24h", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
-# url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/7d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'} # 7days data for array
+# url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/24h", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'}
+url_price_history = RestClient.get"https://api.rarify.tech/data/contracts/ethereum:0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/insights/7d", {:Authorization => 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5'} # 7days data for array
 price_history = JSON.parse(url_price_history)
-#p price_history
+# p price_history
 # p metadata
 
 
@@ -32,9 +32,9 @@ bored_ape_yacht_club = Collection.create(
 p bored_ape_yacht_club
 
 bored_ape_yacht_club_hitory = History.create(
-  price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000, ##24h price as a float
-  # date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] },  ##as an array (only work if change api end point from 24h to 7d)
-  # price: price_history["included"][1]["attributes"]["history"].map { |price| price["min_price"] }, ##as an array (only work if change api end point from 24h to 7d)
+  # price: price_history["included"][0]["attributes"]["min_price"].to_f/1000000000000000000, ##24h price as a float
+  date_time: price_history["included"][1]["attributes"]["history"].map { |day| day["time"] }.last,
+  price: price_history["included"][1]["attributes"]["history"].map { |price| price["min_price"] }.last.to_f/1000000000000000000, ##as an array (only work if change api end point from 24h to 7d)
   collection_id: bored_ape_yacht_club.id
 )
 p bored_ape_yacht_club_hitory
