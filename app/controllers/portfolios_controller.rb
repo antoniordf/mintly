@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  
+
   def show
     @portfolio = current_user.portfolio
   end
