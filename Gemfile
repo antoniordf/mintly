@@ -80,3 +80,5 @@ end
 gem "devise"
 
 gem 'rest-client'
+
+gem 'pg_search'
