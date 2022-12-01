@@ -36,8 +36,8 @@ collections = [
 ]
 
 User.create!(
-  email: "antoniordf@hotmail.com",
-  password: "080283"
+  email: "test@test.com",
+  password: "123456"
 )
 
 collections.each do |collection|
