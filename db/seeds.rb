@@ -36,8 +36,8 @@ collections = [
 ]
 
 user = User.create!(
-  email: "antoniordf@hotmail.com",
-  password: "080283"
+  email: "test@test.com",
+  password: "123456"
 )
 
 collections.each do |collection|
@@ -49,7 +49,6 @@ collections.each do |collection|
     description: metadata["data"]["attributes"]["description"],
     link: metadata["data"]["attributes"]["external_url"],
     image: metadata["data"]["attributes"]["image_url"],
-    portfolio: user.portfolio
   )
 
   url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/7d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
