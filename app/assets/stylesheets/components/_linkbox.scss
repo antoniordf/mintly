@@ -3,6 +3,7 @@
   background-color: rgb(45, 45, 45);
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: center;
   width: 360px;
   color: white;
@@ -42,6 +43,7 @@
 
   h2 {
     margin: 0;
+    font-size: 1rem;
   }
 
   a {

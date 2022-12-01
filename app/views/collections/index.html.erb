@@ -1,13 +1,16 @@
 
 
 <div class="container">
-  <%= form_with url: collections_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      placeholder: "Find a collection"
-    %>
-    <%= submit_tag "Search" %>
-  <% end %>
+  <div class="search-bar">
+    <%= form_with url: collections_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Find a collection",
+        class: "search"
+      %>
+      <%= submit_tag "Search", class: "search-button" %>
+    <% end %>
+  </div>
   <% @collections.each do |collection|  %>
     <%= link_to collection_path(collection) do %>
     <div class="linkbox">
