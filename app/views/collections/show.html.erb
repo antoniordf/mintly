@@ -1,5 +1,23 @@
 <%= @collection.image %>
 <h1><%= @collection.name %></h1>
+
+<div class="display">
+  <div class="graph">
+    <%= area_chart(
+        @collection
+          .histories
+          .group_by_day { |u| u.date_time }
+          .to_h { |k, v| [k, v[0].price] },
+          library: {
+            scales: {
+              x: {ticks: {display: false}},
+              y: {ticks: {display: false}}
+              }
+            }
+        ) %>
+  </div>
+</div>
+
 <h2><%= @collection.description %></h2>
 <p><%= @collection.link %></p>
 
