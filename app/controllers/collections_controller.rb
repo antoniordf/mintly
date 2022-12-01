@@ -7,8 +7,9 @@ class CollectionsController < ApplicationController
       else
         url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[name]=#{params[:query]}", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
         results = JSON.parse(url_metadata)["data"]
-        results = Collection.insert_all(
+        results = Collection.upsert_all(
           bulk_insert_collection_params(results),
+          unique_by: %i[ name image]
         )
         @collections = Collection.where(id: results.rows.flatten)
         return @collections
