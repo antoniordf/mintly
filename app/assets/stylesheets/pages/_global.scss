@@ -37,3 +37,38 @@ h1, h2, h3, p {
   align-items: center;
   box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
 }
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.search, .search-button {
+  border-radius: 15px;
+  box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
+  background-color: black;
+  color: white;
+}
+
+.collection-image-bg {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.collection-image-lg {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.back-button {
+  padding-left: 20px;
+  margin-top: 40px;
+}
