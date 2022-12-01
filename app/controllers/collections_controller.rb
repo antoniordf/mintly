@@ -7,9 +7,12 @@ class CollectionsController < ApplicationController
         url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[name]=#{params[:query]}", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
         results = JSON.parse(url_metadata)["data"]
         results = results.select { |a| a["attributes"]["image_url"].present? && a["attributes"]["image_url"].include?("http") }
-        results = Collection.upsert_all(
-          bulk_insert_collection_params(results)
-        )
+        results = results.reject { |a| Collection.all.map(&:name).include?(a["attributes"]["name"]) }
+        if results.any?
+          results = Collection.insert_all(
+            bulk_insert_collection_params(results)
+          )
+        end
         @collections = Collection.where(id: results.rows.flatten)
         return @collections
       end
@@ -20,7 +23,6 @@ class CollectionsController < ApplicationController
 
   def bulk_insert_collection_params(api_results)
     api_results.map do |api_result|
-
       {
         name: api_result["attributes"]["name"],
         description: api_result["attributes"]["description"],
@@ -32,15 +34,6 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
-  end
-
-  def new
-    @collection = Collection.new
-  end
-
-  def create
-    @collection = Collection.new(collection_params)
-    @collection.save!
   end
 
   private
