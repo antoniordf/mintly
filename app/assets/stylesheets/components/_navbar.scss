@@ -1,7 +1,9 @@
 .navbar {
   width: 100%;
   margin-top: auto;
-  background-color: $maroon;
+  background-color: black;
+  position: sticky;
+  bottom: 0;
 }
 
 .nav-items {
