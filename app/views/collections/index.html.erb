@@ -1,4 +1,13 @@
+
+
 <div class="container">
+  <%= form_with url: collections_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      placeholder: "Find a collection"
+    %>
+    <%= submit_tag "Search" %>
+  <% end %>
   <% @collections.each do |collection|  %>
     <%= link_to collection_path(collection) do %>
     <div class="linkbox">
