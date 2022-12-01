@@ -7,6 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "json"
 require "rest-client"
+
+History.destroy_all
+Collection.destroy_all
+Portfolio.destroy_all
+User.destroy_all
+
 url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[network]=ethereum", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
 metadata = JSON.parse(url_metadata)
 
@@ -21,7 +27,6 @@ collections = [
   "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
   "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
   "0x34d85c9CDeB23FA97cb08333b511ac86E1C4E258",
-  "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
   "0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270",
   "0x23581767a106ae21c074b2276D25e5C3e136a68b",
   "0xa3AEe8BcE55BEeA1951EF834b99f3Ac60d1ABeeB",
@@ -50,6 +55,9 @@ collections.each do |collection|
   price_history = JSON.parse(url_price_history)
 
   items = price_history["included"][1]["attributes"]["history"]
+
+  next if items.nil?
+
   items.each do |item|
     History.create!(collection: Collection.last,
                     date_time: item["time"],
