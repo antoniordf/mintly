@@ -47,6 +47,6 @@ class NftsController < ApplicationController
   end
 
   def nft_params
-    params.require(:nft).permit(:purchase_date, :purchase_price)
+    params.require(:nft).permit(:purchase_date, :purchase_price, :collection_id)
   end
 end
