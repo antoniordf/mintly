@@ -1,16 +1,24 @@
 <div class="navbar ">
   <div class="nav-items">
-    <li class="nav-item active">
-      <i class="fa-solid fa-arrow-trend-up"></i>
+    <li class="nav-item">
+      <%= link_to root_path do %>
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      <% end %>
+      <%= link_to root_path do %>
       <p>Portfolio</p>
+      <% end %>
     </li>
     <li class="nav-item">
-      <i class="fa-solid fa-fire"></i>
+        <i class="fa-solid fa-fire"></i>
       <p>Activity</p>
     </li>
     <li class="nav-item">
-      <i class="fa-solid fa-earth-americas"></i>
-      <p>Discover</p>
+      <%= link_to collections_path do %>
+        <i class="fa-solid fa-earth-americas"></i>
+      <% end %>
+      <%= link_to collections_path do %>
+        <p>Discover</p>
+      <% end %>
     </li>
   </div>
 </div>

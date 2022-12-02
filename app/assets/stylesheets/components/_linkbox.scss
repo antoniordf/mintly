@@ -52,5 +52,8 @@
 }
 
 .price {
-  margin: auto 20px;
+  display: flex;
+  margin: 0 20px;
+  align-items: center;
+  white-space: 5px;
 }
