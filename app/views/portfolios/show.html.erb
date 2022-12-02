@@ -27,7 +27,12 @@
             </div>
           </div>
           <div class="price">
-            <p>Price</p>
+            <i class="fa-brands fa-ethereum"></i><p>
+              <% unless collection.histories.last.nil? %>
+                <%= collection.histories.last.price.round(2) %>
+              <% else %>
+                NIL
+              <% end %></p>
           </div>
         </div>
       <% end %>

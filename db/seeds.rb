@@ -54,7 +54,7 @@ collections.each do |collection|
     contract_id: metadata["data"]["id"]
   )
 
-  url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/7d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
+  url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/90d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
   price_history = JSON.parse(url_price_history)
 
   items = price_history["included"][1]["attributes"]["history"]

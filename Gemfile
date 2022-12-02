@@ -81,7 +81,4 @@ gem "devise"
 gem "chartkick"
 gem "groupdate"
 gem 'rest-client'
-
-gem "importmap-rails", "~> 1.1"
-
 gem 'pg_search'
