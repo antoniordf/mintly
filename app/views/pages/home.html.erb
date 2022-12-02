@@ -11,5 +11,8 @@
   </div>
 
   <div class="portfolio-holdings">
+    <% @portfolio_collections.each do |collection| %>
+      <%= collection.collection_id %>
+    <% end %>
   </div>
 </div>
