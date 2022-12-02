@@ -1,6 +1,11 @@
-.linkbox {
-  border-radius: 15px;
-  background-color: rgb(45, 45, 45);
+.card {
+  border: solid white;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-homepage {
+  background-color: black;
   display: flex;
   align-items: center;
   align-content: center;
@@ -8,24 +13,22 @@
   width: 360px;
   color: white;
   gap: 10px;
-  box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
 }
 
-.collection-image {
+.image-homepage {
   width: 100px;
   height: 55px;
   background-size: cover;
-  background-size: contain;
   background-repeat: no-repeat;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 15px;
 }
 
 .collection-details {
   width: 100% ;
   justify-content: space-between;
   align-items: center;
+  margin-left: 5px;
 
   .info {
     margin: -10px auto;
