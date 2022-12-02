@@ -1,7 +1,9 @@
 <div class="header">
   <div class="subheader">
-    <div class="logo" style="background-image: url('assets/mintly.png');">
-    </div>
+    <%= link_to root_path do %>
+      <div class="logo" style="background-image: url(<%= image_path 'mintly.png' %>);">
+      </div>
+    <% end %>
     <i class="fa-solid fa-user-tie"></i>
   </div>
 </div>
