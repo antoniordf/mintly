@@ -1,7 +1,7 @@
 class Collection < ApplicationRecord
   has_many :histories
   has_many :nfts
-  has_many :portfolio_collections
+  has_many :portfolio_collections, dependent: :destroy
   validates :name, presence: true, uniqueness: true
 
   include PgSearch::Model
