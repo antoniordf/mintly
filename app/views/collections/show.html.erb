@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="display">
+<%# <div class="display">
   <div class="graph">
     <%= area_chart(
         @collection
@@ -25,7 +25,7 @@
           height: "23vh"
         ) %>
   </div>
-</div>
+</div> %>
 
 <div class="container">
   <h1><%= @collection.name %></h1>
@@ -35,6 +35,4 @@
 </div>
 
 
-<%# add link to add to portfolio. rember that the route is nested %>
-<%#  collection_portfolio_collections_path  %>
-<%#  /collections/:collection_id/portfolio_collections %>
+<%= link_to "Add to portfolio", collection_portfolio_collections_path(@collection), data:{turbo_method: :post} %>
