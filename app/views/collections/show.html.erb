@@ -29,8 +29,10 @@
 <div class="container">
   <h1><%= @collection.name %></h1>
   <p><%= @collection.description %></p>
-  <h3>Link to collection website:</h3>
-  <p><%= @collection.link %></p>
+  <% unless @collection.link.nil? %>
+    <h3>Link to collection website:</h3>
+    <a href="<%= @collection.link %>"><%= @collection.link %></a>
+  <% end %>
 </div>
 
 

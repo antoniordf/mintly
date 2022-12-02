@@ -1,18 +1,28 @@
+@mixin generate-gradient($color,$amount) {
+	background: -moz-linear-gradient(bottom, rgba($color,$amount) 0%, rgba($color,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(bottom, rgba($color,$amount) 0%,rgba($color,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to top, rgba($color,$amount) 0%,rgba($color,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
 .navbar {
   width: 100%;
   margin-top: auto;
-  background-color: black;
+  background-color: rgba($color: #000000, $alpha: 0.9);
   position: sticky;
   bottom: 0;
+  height: 80px;
 }
 
 .nav-items {
-  padding: 10px 0px;
+  @include generate-gradient($red, 1);
   display: flex;
   align-items: center;
   justify-content: space-around;
   list-style: none;
   width: 100%;
+  height: 80px;
+  padding-top: 10px;
 }
 
 .nav-item {
