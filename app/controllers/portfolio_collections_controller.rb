@@ -1,11 +1,11 @@
 class PortfolioCollectionsController < ApplicationController
   def create
-    @portfolio = Portfolio.find(params[:portfolio_id])
-    @portfolio_collection = Portfolio_collection.new
-    @portfolio_collection.user = current_user
-    @portfolio_collection.portfolio = @portfolio
-    if @portfolio_collection.save
-      redirect_to portfolios_path
+    @collection = Collection.find(params[:collection_id])
+    @portfolio_collection = PortfolioCollection.new
+    @portfolio_collection.portfolio = current_user.portfolio
+    @portfolio_collection.collection = @collection
+    if @portfolio_collection.save!
+      redirect_to portfolio_path(current_user.portfolio)
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,5 +16,4 @@ class PortfolioCollectionsController < ApplicationController
     @portfolio_collection.destroy
     redirect_to portfolios_path, status: :see_other
   end
-
 end
