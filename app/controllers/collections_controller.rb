@@ -6,14 +6,24 @@ class CollectionsController < ApplicationController
       else
         url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[name]=#{params[:query]}", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
         results = JSON.parse(url_metadata)["data"]
-        results = results.select { |a| a["attributes"]["image_url"].present? && a["attributes"]["image_url"].include?("http") }
-        results = results.reject { |a| Collection.all.map(&:name).include?(a["attributes"]["name"]) }
+        results_with_image = []
+        results.each do |a|
+          if a["attributes"]["image_url"].present? && a["attributes"]["image_url"].include?("http")
+            results_with_image << a
+          else
+            a["attributes"]["image_url"] = "https://www.pngitem.com/pimgs/m/124-1245793_ethereum-eth-icon-ethereum-png-transparent-png.png"
+            results_with_image << a
+          end
+        end
+        results = results_with_image.reject { |a| Collection.all.map(&:name).include?(a["attributes"]["name"]) }
         if results.any?
           results = Collection.insert_all(
             bulk_insert_collection_params(results)
           )
+          @collections = Collection.where(id: results.rows.flatten).search_by_name(params[:query])
+        else
+          @collections = []
         end
-        @collections = Collection.where(id: results.rows.flatten)
         return @collections
       end
     else
