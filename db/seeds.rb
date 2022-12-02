@@ -50,7 +50,8 @@ collections.each do |collection|
     name: metadata["data"]["attributes"]["name"],
     description: metadata["data"]["attributes"]["description"],
     link: metadata["data"]["attributes"]["external_url"],
-    image: metadata["data"]["attributes"]["image_url"]
+    image: metadata["data"]["attributes"]["image_url"],
+    contract_id: metadata["data"]["id"]
   )
 
   url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/7d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
