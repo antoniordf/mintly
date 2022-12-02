@@ -4,12 +4,16 @@
   <% end %>
 </div>
 
+
+<div class="container" style="margin-top: 0;">
+  <h1><%= @collection.name %></h1>
+</div>
 <div class="collection-image-bg">
   <div class="collection-image-lg" style="background-image: url('<%= @collection.image %>');">
   </div>
 </div>
 
-<%# <div class="display">
+<div class="display">
   <div class="graph">
     <%= area_chart(
         @collection
@@ -23,12 +27,11 @@
             }
           },
           height: "23vh"
-        ) %>
+    )%>
   </div>
-</div> %>
+</div>
 
 <div class="container">
-  <h1><%= @collection.name %></h1>
   <p><%= @collection.description %></p>
   <% unless @collection.link.nil? %>
     <h3>Link to collection website:</h3>
@@ -36,5 +39,8 @@
   <% end %>
 </div>
 
-
-<%= link_to "Add to portfolio", collection_portfolio_collections_path(@collection), data:{turbo_method: :post} %>
+<div class="btn">
+  <div class="add-btn">
+    <%= link_to "Add", collection_portfolio_collections_path(@collection), data:{turbo_method: :post} %>
+  </div>
+</div>

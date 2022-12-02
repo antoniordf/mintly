@@ -1,5 +1,4 @@
 class PortfolioCollectionsController < ApplicationController
-
   def create
     @collection = Collection.find(params[:collection_id])
     @portfolio_collection = PortfolioCollection.new
