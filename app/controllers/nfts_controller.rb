@@ -17,7 +17,7 @@ class NftsController < ApplicationController
     @nft = Nft.new(nft_params)
     @nft.collection = @collection
     if @nft.save
-      redirect_to nft_path(@nft)
+      redirect_to collection_portfolio_collections_path(@collection)
     else
       render :new, status: :unprocessable_entity
     end
@@ -47,6 +47,6 @@ class NftsController < ApplicationController
   end
 
   def nft_params
-    params.require(:nft).permit(:purchase_date, :purchase_price, :collection_id)
+    params.require(:nft).permit(:name, :purchase_date, :purchase_price, :collection_id)
   end
 end
