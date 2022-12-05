@@ -39,7 +39,7 @@ collections = [
 
 User.create!(
   email: "test@test.com",
-  password: "123456"
+  password: "1234567"
 )
 
 collections.each do |collection|

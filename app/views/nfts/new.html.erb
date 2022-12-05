@@ -1,0 +1,7 @@
+<h1>Add Purchase</h1>
+<%= simple_form_for [@collection, @nft] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :purchase_date %>
+  <%= f.input :purchase_price %>
+  <%= f.submit "Add Purchase" %>
+<% end %>
