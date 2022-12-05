@@ -21,7 +21,7 @@
               <h2><%= collection.name %></h2>
               <div class="info-detail">
                 <div class="short-desc">
-                  <%= collection.nfts.count %><p>Items</p>
+                  <%= collection.nfts.where(collection_id: collection)[0].purchase_quantity %><p>Items</p>
                 </div>
               </div>
             </div>
