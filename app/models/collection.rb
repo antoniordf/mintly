@@ -31,4 +31,7 @@ class Collection < ApplicationRecord
     histories.find(date_time: date) - avg_nft_purchase_price
   end
 
+  def profit_and_loss_percent(date)
+    (profit_and_loss(date) / cost)
+  end
 end
