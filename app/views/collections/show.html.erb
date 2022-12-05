@@ -21,6 +21,18 @@
 
 <div class="display">
   <div class="graph">
+    <div class="graph-price">
+      <div class="show-price">
+      <i class="fa-brands fa-ethereum fa-2x" style="color: white;"> </i>
+      <h2>
+        <% unless @collection.histories.last.nil? %>
+          <%= @collection.histories.last.price.round(2) %>
+        <% else %>
+          NIL
+        <% end %>
+      </h2>
+      </div>
+    </div>
     <%= area_chart(
         @collection
           .histories
@@ -37,15 +49,21 @@
   </div>
 </div>
 
+  <br>
+
 <div class="container">
+  <h3>Description:</h3>
   <p><%= @collection.description %></p>
+  <br>
   <% unless @collection.link.nil? %>
     <h3>Link to collection website:</h3>
     <a href="<%= @collection.link %>"><%= @collection.link %></a>
   <% end %>
 </div>
 
-<div class="btn">
+<br>
+
+<div class="m-btn">
   <div class="add-btn">
     <%= link_to "Add", new_collection_nft_path(@collection), data:{turbo_method: :get} %>
   </div>
