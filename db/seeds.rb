@@ -8,6 +8,7 @@
 require "json"
 require "rest-client"
 
+PortfolioCollection.destroy_all
 History.destroy_all
 Collection.destroy_all
 Portfolio.destroy_all
