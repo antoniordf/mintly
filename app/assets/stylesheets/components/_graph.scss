@@ -1,3 +1,7 @@
+.graph {
+  position: relative;
+}
+
 .graph-days {
   color: white;
   list-style: none;
@@ -17,4 +21,24 @@
   color: $lilac;
   padding: 2%;
   border-radius: 16px;
+}
+
+.graph-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.show-price {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  position: absolute;
+  align-self: center;
+  top: 40px;
+
+  h2 {
+    margin: 0;
+  }
 }
