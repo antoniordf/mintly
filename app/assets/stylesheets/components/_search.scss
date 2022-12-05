@@ -1,0 +1,22 @@
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search {
+  border-radius: 15px;
+  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
+  background-color: #2d2d2d;
+  color: white;
+  height: 35px;
+  width: 250px;
+}
+
+.search-button {
+  border-radius: 15px;
+  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
+  background-color: #2d2d2d;
+  color: white;
+  height: 40px;
+}
