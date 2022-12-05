@@ -11,7 +11,7 @@ class CollectionsController < ApplicationController
           if a["attributes"]["image_url"].present? && a["attributes"]["image_url"].include?("http")
             results_with_image << a
           else
-            a["attributes"]["image_url"] = "https://www.pngitem.com/pimgs/m/124-1245793_ethereum-eth-icon-ethereum-png-transparent-png.png"
+            a["attributes"]["image_url"] = "placeholder"
             results_with_image << a
           end
         end

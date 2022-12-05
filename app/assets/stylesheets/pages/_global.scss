@@ -62,20 +62,28 @@ h1, h2, h3, p {
   height: 40px;
 }
 
-.collection-image-bg {
+.bg-img {
+  position: relative;
+  width: 390px;
+  height: 300px;
+  z-index: -1;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
-  margin-top: 40px;
+}
+
+.collection-image-bg {
+  position: absolute;
 }
 
 .collection-image-lg {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 50%;
+  border-radius: 15px;
+  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
 }
 
 .back-button {
