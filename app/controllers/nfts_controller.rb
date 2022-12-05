@@ -16,8 +16,13 @@ class NftsController < ApplicationController
   def create
     @nft = Nft.new(nft_params)
     @nft.collection = @collection
-    if @nft.save
-      redirect_to collection_portfolio_collections_path(@collection)
+    @nft.portfolio = current_user.portfolio
+    unless PortfolioCollection.where(portfolio: current_user.portfolio, collection: @collection).present?
+      PortfolioCollection.create!(portfolio: current_user.portfolio, collection: @collection)
+    end
+
+    if @nft.save!
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
