@@ -28,7 +28,7 @@
   height: 100px;
 
   .logo {
-    width: 300px;
+    width: 200px;
     height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -36,8 +36,16 @@
   }
 
   a {
-    width: 329px;
-    margin-left: 10px;
-    margin-bottom: 12px;
+    width: 100px;
+    margin-left: 20px;
+    flex-grow: 0;
+  }
+}
+
+.dd {
+  background: transparent;
+  border: none;
+  &:after {
+    border-color: transparent;
   }
 }

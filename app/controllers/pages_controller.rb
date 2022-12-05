@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-  def home
-  end
+  skip_before_action :authenticate_user!, only: :home
 
-  def logout
+  def home
+    redirect_to portfolio_path(current_user.portfolio) if user_signed_in?
   end
 end
