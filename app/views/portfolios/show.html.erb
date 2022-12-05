@@ -21,7 +21,11 @@
               <h2><%= collection.name %></h2>
               <div class="info-detail">
                 <div class="short-desc">
-                  <p>Items</p>
+                  <% nfts = [] %>
+                  <% collection.nfts.where(collection_id: collection).each do |nft| %>
+                    <% nfts << nft.purchase_quantity %>
+                  <% end %>
+                  <%= nfts.sum %><p>Items</p>
                 </div>
               </div>
             </div>

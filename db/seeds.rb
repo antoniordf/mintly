@@ -8,6 +8,7 @@
 require "json"
 require "rest-client"
 
+PortfolioCollection.destroy_all
 History.destroy_all
 Collection.destroy_all
 Portfolio.destroy_all
@@ -39,7 +40,7 @@ collections = [
 
 User.create!(
   email: "test@test.com",
-  password: "123456"
+  password: "1234567"
 )
 
 collections.each do |collection|

@@ -36,13 +36,12 @@ class CollectionsController < ApplicationController
     if @collection.histories.empty?
       url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{@collection.contract_id}/insights/90d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
       results = JSON.parse(url_price_history)
-       if results["included"][0]["attributes"]["history"].nil?
+      if results["included"][0]["attributes"]["history"].nil?
         data = results["included"][1]["attributes"]["history"]
-       else
+      else
         data = results["included"][0]["attributes"]["history"]
-       end
+      end
       History.insert_all(bulk_insert_prices(data))
-      # raise
     else
       @collection.histories
     end

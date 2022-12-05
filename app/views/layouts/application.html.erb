@@ -14,11 +14,11 @@
   </head>
 
   <body>
-    <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+    <% if user_signed_in? %>
       <%= render "shared/header" %>
     <% end %>
     <%= yield %>
-    <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+    <% if user_signed_in? %>
       <%= render "shared/navbar" %>
     <% end %>
   </body>
