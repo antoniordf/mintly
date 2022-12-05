@@ -38,9 +38,15 @@
     display: flex;
   }
 
-  .short-desc p {
-    margin: 0px;
-    color: white;
+  .short-desc {
+    display: flex;
+    width: 50px;
+
+    p {
+      margin: 0px;
+      color: white;
+      margin-left: 10px;
+    }
   }
 
   h2 {
