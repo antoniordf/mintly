@@ -17,6 +17,7 @@
 	width: 100vw;
 	box-sizing: border-box;
 	z-index: 5;
+  margin-bottom: -25px
 }
 
 .subheader {
@@ -27,13 +28,24 @@
   height: 100px;
 
   .logo {
-    width: 350px;
-    height: 150px;
+    width: 200px;
+    height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
+    margin-bottom: 5px;
   }
 
   a {
-    width: 329px;
+    width: 100px;
+    margin-left: 20px;
+    flex-grow: 0;
+  }
+}
+
+.dd {
+  background: transparent;
+  border: none;
+  &:after {
+    border-color: transparent;
   }
 }

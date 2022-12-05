@@ -1,11 +1,11 @@
 <div class="navbar ">
   <div class="nav-items">
     <li class="nav-item">
-      <%= link_to root_path do %>
-        <i class="fa-solid fa-arrow-trend-up"></i>
+      <%= link_to collections_path do %>
+        <i class="fa-solid fa-earth-americas"></i>
       <% end %>
-      <%= link_to root_path do %>
-      <p>Portfolio</p>
+      <%= link_to collections_path do %>
+        <p>Discover</p>
       <% end %>
     </li>
     <li class="nav-item">
@@ -13,11 +13,11 @@
       <p>Activity</p>
     </li>
     <li class="nav-item">
-      <%= link_to collections_path do %>
-        <i class="fa-solid fa-earth-americas"></i>
+      <%= link_to portfolio_path(current_user.portfolio) do %>
+        <i class="fa-solid fa-arrow-trend-up"></i>
       <% end %>
-      <%= link_to collections_path do %>
-        <p>Discover</p>
+      <%= link_to portfolio_path(current_user.portfolio) do %>
+      <p>Portfolio</p>
       <% end %>
     </li>
   </div>
