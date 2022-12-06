@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "json"
 require "rest-client"
 
@@ -13,6 +6,7 @@ History.destroy_all
 Collection.destroy_all
 Portfolio.destroy_all
 User.destroy_all
+puts "Database cleared!"
 
 url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[network]=ethereum", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
 metadata = JSON.parse(url_metadata)
@@ -42,6 +36,7 @@ User.create!(
   email: "test@test.com",
   password: "1234567"
 )
+puts "User created"
 
 collections.each do |collection|
   url_metadata = RestClient.get "https://api.rarify.tech/data/contracts/ethereum:#{collection}", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
@@ -54,17 +49,24 @@ collections.each do |collection|
     image: metadata["data"]["attributes"]["image_url"],
     contract_id: metadata["data"]["id"]
   )
+  puts "Collection created"
 
+  puts "Reading api...."
   url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{metadata['data']['id']}/insights/90d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
   price_history = JSON.parse(url_price_history)
 
   items = price_history["included"][1]["attributes"]["history"]
 
   next if items.nil?
+  puts "Deleting if nil!"
+
+  items = items.reject { |item| item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i }
+  puts "Items rejected"
 
   items.each do |item|
     History.create!(collection: Collection.last,
                     date_time: item["time"],
-                    price: (item["min_price"].to_f / 1_000_000_000_000_000_000))
+                    price: item["min_price"].to_f / 1_000_000_000_000_000_000)
+    puts "History created"
   end
 end
