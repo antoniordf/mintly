@@ -1,4 +1,9 @@
-<div class="card">
+<div class="gradient-top">
+</div>
+<div class="container">
+  <div class="logo" style="background-image: url(<%= image_path 'mintly.png' %>);">
+  </div>
+  <div class="m-card">
   <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
@@ -22,4 +27,7 @@
     </div>
   <% end %>
 <%= render "devise/shared/links" %>
+</div>
+</div>
+<div class="gradient-bottom">
 </div>

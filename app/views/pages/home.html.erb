@@ -1,21 +1,18 @@
-<h1>home</h1>
-<%= link_to "Explore Mintly", new_user_session_path %>
-<%#
-<div class="container">
-  <div class="graph-days">
-    <li>1 day</li>
-    <li class="days-active">7 days</li>
-    <li>30 days</li>
-  </div>
+<div class="gradient-top">
+</div>
+<div class="home-container">
+  <div class="home-page">
 
-  <div class="display">
-    <div class="graph">
-    </div>
+    <%= link_to new_user_session_path do %>
+      <div class="logo" style="background-image: url(<%= image_path 'mintly.png' %>);">
+      </div>
+    <% end %>
+  <br>
+  <h1>Your NFT Portfolio</h1>
+  <h1>In one place</h1>
+  <br>
+  <%= link_to "Explore Mintly", new_user_session_path %>
   </div>
-
-  <div class="portfolio-holdings">
-    <% @portfolio_collections.each do |collection| %>
-      <%# <%= collection.collection_id %>
-    <%# <% end %> %>
-  <%# </div> %>
-<%# </div> %> %> %>
+</div>
+<div class="gradient-bottom">
+</div>

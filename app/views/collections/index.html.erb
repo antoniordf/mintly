@@ -19,6 +19,13 @@
             <h2><%= collection.name.truncate(25) %></h2>
           <div class="info-detail">
             <div class="short-desc">
+              <% nfts = [] %>
+              <% collection.nfts.where(collection: collection, portfolio: current_user.portfolio).each do |nft| %>
+                <% nfts << nft.purchase_quantity %>
+              <% end %>
+              <% unless nfts.sum == 0 %>
+                <%= nfts.sum %><p>Owned</p>
+              <% end %>
             </div>
           </div>
         </div>

@@ -5,3 +5,12 @@
 .price p {
   margin-left: 5px;
 }
+
+.empty-portf {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
