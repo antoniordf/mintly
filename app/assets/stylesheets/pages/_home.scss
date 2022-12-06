@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+.home-container {
+  margin: 0px 15px;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  margin: auto;
+
+  .logo {
+    width: 371px;
+    height: 345px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+  }
+
+  a {
+    flex-grow: 0;
+  }
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  // margin-bottom: 5px;
+
+}

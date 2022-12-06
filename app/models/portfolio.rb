@@ -3,7 +3,7 @@ class Portfolio < ApplicationRecord
   has_many :portfolio_collections, dependent: :destroy
   has_many :collections, through: :portfolio_collections
   has_many :portfolio_nfts, dependent: :destroy
-  has_many :nfts, through: :collections
+  has_many :nfts
 
   def value_on_date(date)
     total = 0
