@@ -8,6 +8,8 @@ class Portfolio < ApplicationRecord
   def value_on_date(date)
     total = 0
     nfts.each do |nft|
+      next if nft.collection.histories.find_by(date_time: date).nil?
+
       total += nft.collection.histories.find_by!(date_time: date).price * nft.purchase_quantity
     end
     return total
