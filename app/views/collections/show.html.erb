@@ -2,7 +2,7 @@
   <h1><%= @collection.name %></h1>
 </div>
 <div class="bg-img">
-<%= image_tag "collections_bg.gif" %>
+  <%= image_tag "collections_bg.gif" %>
   <div class="collection-image-bg">
     <% if @collection.image == "placeholder" %>
       <%= image_tag("eth_logo.png", class: "collection-image-lg") %>
@@ -41,8 +41,6 @@
     )%>
   </div>
 </div>
-
-  <br>
 
 <div class="container">
   <h3>Description:</h3>
