@@ -4,7 +4,7 @@
     <li class="days-active">7 days</li>
     <li>30 days</li>
   </div>
-
+</div>
   <div class="display">
     <div class="graph">
       <%= area_chart(@data,
@@ -19,6 +19,7 @@
     </div>
   </div>
 
+<div class="container">
   <% unless @portfolio.nfts.empty? %>
     <div class="portfolio-holdings">
       <% @portfolio.collections.each do |collection| %>
@@ -40,13 +41,27 @@
                 </div>
               </div>
             </div>
-            <div class="price">
-              <i class="fa-brands fa-ethereum"></i><p>
-                <% unless collection.histories.last.nil? %>
-                  <%= collection.histories.last.price.round(2) %>
+            <div class="price-2">
+              <div class="eth-price">
+                <i class="fa-brands fa-ethereum"><% unless collection.histories.last.nil? %>
+                    <%= collection.histories.last.price.round(2) %>
+                  <% else %>
+                    NIL
+                  <% end %></i>
+              </div>
+              <div class="price-change">
+                <% avg_nft_price = collection.nfts.where(portfolio: current_user.portfolio).pluck(:purchase_price).sum / collection.nfts.where(portfolio: current_user.portfolio).size %>
+                <% difference = (collection.histories.last.price - avg_nft_price) / avg_nft_price * 100 %>
+                <% if difference >= 0 %>
+                  <div class="green">
+                    <%= number_to_percentage(difference, precision: 2) %>
+                  </div>
                 <% else %>
-                  NIL
-                <% end %></p>
+                  <div class="red">
+                    <%= number_to_percentage(difference, precision: 2) %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>
