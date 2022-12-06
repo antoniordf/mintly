@@ -11,27 +11,50 @@ class Collection < ApplicationRecord
                     tsearch: { prefix: true, any_word: true }
                   }
 
-  def cost
-    cost = 0
+  # def cost
+  #   cost = 0
+  #   nfts.each do |nft|
+  #     cost += nft.purchase_price * nft.purchase_quantity
+  #   end
+  #   return cost
+  # end
+
+  def value_on_date(date)
+    total = 0
     nfts.each do |nft|
-      cost += nft.purchase_price * nft.purchase_quantity
+      next if nft.collection.histories.find_by(date_time: date).nil?
+
+      if nft.purchase_date <= date
+        total += nft.collection.histories.find_by!(date_time: date).price * nft.purchase_quantity
+      else
+        total += nft.collection.histories.find_by!(date_time: date).price * 0
+      end
     end
-    return cost
+    return total
   end
 
-  def average_purchase_price
-    cost / nfts_sum_quantity
+  def profit_and_loss(starting_date, end_date)
+    # raise
+    value_on_date(end_date) - value_on_date(starting_date)
   end
 
-  def nfts_sum_quantity
-    nfts.pluck(:purchase_quantity).reduce(:+)
+  def profit_and_loss_percent(starting_date, end_date)
+    (profit_and_loss(starting_date, end_date) / value_on_date(starting_date))
   end
 
-  def profit_and_loss(date)
-    histories.find(date_time: date) - avg_nft_purchase_price
-  end
+  # def average_purchase_price
+  #   cost / nfts_sum_quantity
+  # end
 
-  def profit_and_loss_percent(date)
-    (profit_and_loss(date) / cost)
-  end
+  # def nfts_sum_quantity
+  #   nfts.pluck(:purchase_quantity).reduce(:+)
+  # end
+
+  # def profit_and_loss(date)
+  #   histories.find_by(date_time: date) - average_purchase_price
+  # end
+
+  # def profit_and_loss_percent(date)
+  #   (profit_and_loss(date) / cost)
+  # end
 end
