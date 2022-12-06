@@ -1,8 +1,8 @@
 <div class="container">
   <div class="graph-days">
-    <li>1 day</li>
-    <li class="days-active">7 days</li>
-    <li>30 days</li>
+    <%= link_to "1 day", portfolio_path(@portfolio, period: 1), class: params[:period] == "1" ? "days-active" : "" %>
+    <%= link_to "7 days", portfolio_path(@portfolio, period: 7), class: params[:period] == "7" ? "days-active" : "" %>
+    <%= link_to "30 days", portfolio_path(@portfolio, period: 30), class: params[:period] == "30" ? "days-active" : "" %>
   </div>
 
   <div class="display">

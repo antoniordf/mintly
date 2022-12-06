@@ -13,17 +13,22 @@
 </div>
 
 <div class="display">
+  <div class="graph-days">
+    <li>1 day</li>
+    <li class="days-active">7 days</li>
+    <li>30 days</li>
+  </div>
   <div class="graph">
     <div class="graph-price">
       <div class="show-price">
-      <i class="fa-brands fa-ethereum fa-2x" style="color: white;"> </i>
-      <h2>
-        <% unless @collection.histories.last.nil? %>
-          <%= @collection.histories.last.price.round(2) %>
-        <% else %>
-          NIL
-        <% end %>
-      </h2>
+        <i class="fa-brands fa-ethereum fa-2x" style="color: white;"> </i>
+        <h2>
+          <% unless @collection.histories.last.nil? %>
+            <%= @collection.histories.last.price.round(2) %>
+          <% else %>
+            NIL
+          <% end %>
+        </h2>
       </div>
     </div>
     <%= area_chart(
