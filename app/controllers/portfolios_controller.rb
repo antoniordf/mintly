@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
 
     @data = {}
     end_date = Date.today
-    start_date = end_date - 30.days
+    start_date = end_date - params[:period].to_i.days
 
     (start_date..end_date).each do |date|
       @data[date] = @portfolio.value_on_date(date)
