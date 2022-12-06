@@ -82,3 +82,4 @@ gem "chartkick"
 gem "groupdate"
 gem 'rest-client'
 gem 'pg_search'
+gem "anomaly"

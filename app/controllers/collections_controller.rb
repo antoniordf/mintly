@@ -45,6 +45,7 @@ class CollectionsController < ApplicationController
     else
       @collection.histories
     end
+    @collection_histories = @collection.histories
   end
 
   private
