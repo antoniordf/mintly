@@ -7,6 +7,15 @@
 
   <div class="display">
     <div class="graph">
+      <%= area_chart(@data,
+        library: {
+          scales: {
+            x: {ticks: {display: false}},
+            y: {ticks: {display: false}}
+            }
+          },
+          height: "23vh"
+      )%>
     </div>
   </div>
 

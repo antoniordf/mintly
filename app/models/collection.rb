@@ -10,4 +10,28 @@ class Collection < ApplicationRecord
                   using: {
                     tsearch: { prefix: true, any_word: true }
                   }
+
+  def cost
+    cost = 0
+    nfts.each do |nft|
+      cost += nft.purchase_price * nft.purchase_quantity
+    end
+    return cost
+  end
+
+  def average_purchase_price
+    cost / nfts_sum_quantity
+  end
+
+  def nfts_sum_quantity
+    nfts.pluck(:purchase_quantity).reduce(:+)
+  end
+
+  def profit_and_loss(date)
+    histories.find(date_time: date) - avg_nft_purchase_price
+  end
+
+  def profit_and_loss_percent(date)
+    (profit_and_loss(date) / cost)
+  end
 end

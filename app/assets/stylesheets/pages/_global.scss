@@ -26,84 +26,28 @@ h1, h2, h3, p {
   color: white;
 }
 
-.m-card {
+.bg-img {
+  position: relative;
+  width: 390px;
+  height: 300px;
+  z-index: -1;
   display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: 10px;
-  width: 60%;
-  align-content: center;
-  margin: auto;
   align-items: center;
-  box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
-}
-
-
-.search-bar {
-  display: flex;
+  align-content: center;
   justify-content: center;
-  margin-bottom: 30px;
-}
-
-.search {
-  border-radius: 15px;
-  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
-  background-color: #2d2d2d;
-  color: white;
-  height: 35px;
-  width: 250px;
-}
-
-.search-button {
-  border-radius: 15px;
-  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
-  background-color: #2d2d2d;
-  color: white;
-  height: 40px;
 }
 
 .collection-image-bg {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  margin-top: 40px;
+  position: absolute;
 }
 
 .collection-image-lg {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 50%;
-}
-
-.back-button {
-  padding-left: 20px;
-  margin-top: 40px;
-  // position: sticky;
-  // top: 10px;
-}
-
-.m-btn {
-  display: flex;
-  margin: 20px auto;
-}
-
-.add-btn {
   border-radius: 15px;
-  background-color: $red;
-  width: 100px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
+  // box-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
 }
 
 html {

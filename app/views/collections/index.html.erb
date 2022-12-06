@@ -12,14 +12,13 @@
   <% @collections.each do |collection|  %>
     <%= link_to collection_path(collection) do %>
     <div class="linkbox">
-      <div class="collection-image" style="background-image: url('<%= collection.image %>');">
+      <div class="collection-image" style="background-image: url('<%= collection.image == "placeholder" ? image_path('eth_logo.png') : collection.image%>');">
       </div>
       <div class="collection-details">
         <div class="info">
-            <h2><strong><%= collection.name %></strong></h2>
+            <h2><%= collection.name.truncate(25) %></h2>
           <div class="info-detail">
             <div class="short-desc">
-              <p>Items</p>
             </div>
           </div>
         </div>
