@@ -10,18 +10,18 @@
   justify-content: space-around;
 
   a {
-    color: white !important;
-  }
+    color: white;
 
-  .days-active {
-    border: 1px solid white;
-    background-color: white;
-    color: $lilac;
-    padding: 2%;
-    border-radius: 16px;
-
-    a {
-      color: $lilac !important;
+    &.days-active {
+      color: $lilac;
+      font-weight: bold;
+      border: 1px solid white;
+      background-color: white;
+      width: 77px;
+      color: $lilac;
+      padding: 2%;
+      border-radius: 16px;
+      text-align: center;
     }
   }
 
@@ -30,18 +30,6 @@
     font-weight: bold;
   }
 }
-
-// .days-active {
-//   border: 1px solid white;
-//   background-color: white;
-//   color: $lilac;
-//   padding: 2%;
-//   border-radius: 16px;
-
-//   a {
-//     color: $lilac !important;
-//   }
-// }
 
 .graph-price {
   display: flex;
