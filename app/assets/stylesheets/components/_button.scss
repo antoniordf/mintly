@@ -27,3 +27,16 @@
     color: white;
   }
 }
+
+.simple-form-add {
+  border-radius: 15px;
+  background-color: $red;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-weight: bold;
+  color: white;
+}

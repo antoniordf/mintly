@@ -1,12 +1,12 @@
 <div class="m-card">
-  <h1>Add Purchase</h1>
+  <h1>Add Purchase for <%= @collection.name %></h1>
   <%= simple_form_for [@collection, @nft] do |f| %>
     <div class="white-text">
       <%= f.input :name %>
-      <%= f.input :purchase_date %>
-      <%= f.input :purchase_price %>
+      <%= f.input :purchase_date, as: :date, html5: true %>
+      <%= f.input :purchase_price, label: "Purchase Price (ETH)" %>
       <div class="flex-center margin-bottom-1">
-      <%= f.submit "Add Purchase" %>
+      <%= f.submit "Add Purchase", :class => "simple-form-add" %>
       </div>
     </div>
   <% end %>
