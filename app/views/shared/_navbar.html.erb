@@ -9,8 +9,12 @@
       <% end %>
     </li>
     <li class="nav-item">
+      <%= link_to collection_nfts_path(current_user.portfolio) do %>
         <i class="fa-solid fa-fire"></i>
-      <p>Activity</p>
+      <% end %>
+      <%= link_to collection_nfts_path(current_user.portfolio) do %>
+        <p>Activity</p>
+      <% end %>
     </li>
     <li class="nav-item">
       <%= link_to portfolio_path(current_user.portfolio) do %>

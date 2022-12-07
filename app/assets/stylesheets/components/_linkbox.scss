@@ -25,12 +25,6 @@
 
 .collection-details {
   flex-grow: 1;
-  // width: 248px;
-  // width: 100%;
-
-  .info {
-    // width: 200px;
-  }
 
   .info-detail {
     display: flex;
@@ -59,4 +53,36 @@
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  }
+}
+
+.price-3 {
+  margin: auto 20px;
+  padding-top: 8px;
+  height: 52px;
+  width: 89px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.purchase-price {
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  justify-content: right;
+}
+
+.linkbox-purchased {
+  border-radius: 15px;
+  background-color: rgb(45, 45, 45);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 360px;
+  color: white;
+  gap: 10px;
+  box-shadow: 0 0 7px rgba(153, 255, 128, 0.7);
+  margin-bottom: 20px;
+}
