@@ -16,8 +16,6 @@ metadata = JSON.parse(url_metadata)
 # price_history = JSON.parse(url_price_history)
 
 collections = [
-  "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-  "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB",
   "0xc99c679C50033Bbc5321EB88752E89a93e9e83C5",
   "0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e",
   "0xED5AF388653567Af2F388E6224dC7C4b3241C544",
