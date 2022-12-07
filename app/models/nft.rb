@@ -5,5 +5,6 @@ class Nft < ApplicationRecord
   belongs_to :collection
   belongs_to :portfolio
 
-  validates :purchase_date, :purchase_price, presence: true
+  validates :purchase_date, :purchase_price, :name, presence: true
+  validates :name, length: { maximum: 17 }
 end
