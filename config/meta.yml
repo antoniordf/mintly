@@ -1,5 +1,5 @@
 meta_product_name: "Mintly"
 meta_title: "Mintly - Discover NFT collections, build and track your NFT Portfolio in one place"
-meta_description: "Discover NFT collections, build and track your NFT Portfolio in one place"
-meta_image: "mintly.png" # should exist in `app/assets/images/`
+meta_description: "Mintly empowers users to track the floor prices of their nft collections over time with ease."
+meta_image: "meta_image.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
