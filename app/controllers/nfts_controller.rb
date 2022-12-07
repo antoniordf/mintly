@@ -1,5 +1,5 @@
 class NftsController < ApplicationController
-  before_action :find_collection
+  before_action :find_collection, except: [:index]
 
   def index
     @nfts = Nft.where(portfolio: current_user.portfolio)
