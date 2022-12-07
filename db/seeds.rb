@@ -58,15 +58,30 @@ collections.each do |collection|
   items = price_history["included"][1]["attributes"]["history"]
 
   next if items.nil?
-  puts "Deleting if nil!"
-
-  items = items.reject { |item| item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i }
-  puts "Items rejected"
 
   items.each do |item|
+    if item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
+      item["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
+    end
+
     History.create!(collection: Collection.last,
                     date_time: item["time"],
                     price: item["min_price"].to_f / 1_000_000_000_000_000_000)
-    puts "History created"
   end
 end
+
+# url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/ethereum:0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/insights/90d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
+# price_history = JSON.parse(url_price_history)
+# pp price_history
+
+# items = price_history["included"][1]["attributes"]["history"]
+
+# updated_items = items.map do |item|
+#   puts "BEFORE"
+#   pp item
+#   if item["min_price"].to_i * 3 < price_history["included"][0]["attributes"]["avg_price"].to_i
+#     item["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
+#   end
+#   puts "AFTER"
+#   pp item
+# end

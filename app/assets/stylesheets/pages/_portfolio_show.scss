@@ -14,3 +14,32 @@
   align-items: center;
   color: gray;
 }
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pnl-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.portfolio-pnl {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: solid 4px #311D3F;
+  border-radius: 16px;
+  width: 80%;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.container-portfolio {
+  margin: 0px 15px;
+  margin-top: 20px;
+}
