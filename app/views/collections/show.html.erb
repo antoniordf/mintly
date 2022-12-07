@@ -32,17 +32,19 @@
           .group_by_day { |u| u.date_time }
           .to_h { |k, v| [k, v[0].price] },
           library: {
+            ticks: {
+              maxTicksLimit: max_tick_graph(params[:period]),  # This method is defined in app/helpers/application_helper.rb
+              maxRotation: 0,
+              autoSkip: true
+            },
             scales: {
-              x: {ticks: {display: false}},
+              x: {ticks: {display: true}},
               y: {ticks: {display: true}}
             }
           },
           height: "23vh"
     )%>
   </div>
-</div>
-<div class="graph-desc">
-  <p style="color: gray;"><em>Graph for the last 90 days</em></p>
 </div>
 
 <div class="container">

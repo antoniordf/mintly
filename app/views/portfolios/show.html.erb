@@ -22,14 +22,20 @@
       </h2>
     </div>
     </div>
-    <%= area_chart(@data,
+    <%= area_chart(
+      @data,
       library: {
+        ticks: {
+          maxTicksLimit: max_tick_graph(params[:period]),  # This method is defined in app/helpers/application_helper.rb
+          maxRotation: 0,
+          autoSkip: true
+        },
         scales: {
-          x: {ticks: {display: false}},
+          x: {ticks: {display: true}},
           y: {ticks: {display: true}}
           }
         },
-        height: "23vh"
+        height: "23vh",
     )%>
   </div>
 </div>
