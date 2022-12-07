@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
   resources :portfolio_collections, only: [:destroy]
   resources :portfolios, only: [:show]
-  get "home", to: 'pages#home', as: :home
+  get "/home", to: 'pages#home', as: :home
 end
