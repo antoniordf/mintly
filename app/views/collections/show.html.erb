@@ -62,31 +62,33 @@
   <br>
   <br>
 
-  <h3>NFT Purchase History</h3>
-  <br>
-  <% @reversed_nfts_collections.each do |nft|  %>
-    <div class="linkbox-purchased">
-      <div class="collection-image" style="background-image: url('<%= nft.collection.image %>');">
-      </div>
-      <div class="collection-details">
-        <div class="info">
-            <h2><%= nft.collection.name.truncate(18) %></h2>
-          <div class="info-detail">
-            <div class="short-desc">
-              <%= nft.name %>
+  <% unless @reversed_nfts_collections.empty? %>
+    <h3>NFT Purchase History</h3>
+    <br>
+    <% @reversed_nfts_collections.each do |nft|  %>
+      <div class="linkbox-purchased">
+        <div class="collection-image" style="background-image: url('<%= nft.collection.image %>');">
+        </div>
+        <div class="collection-details">
+          <div class="info">
+              <h2><%= nft.collection.name.truncate(18) %></h2>
+            <div class="info-detail">
+              <div class="short-desc">
+                <%= nft.name %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="price-3">
-        <div class="purchase-price">
-         <i class="fa-brands fa-ethereum"> <%= nft.purchase_price.round(2) %></i>
+        <div class="price-3">
+          <div class="purchase-price">
+          <i class="fa-brands fa-ethereum"> <%= nft.purchase_price.round(2) %></i>
+          </div>
+          <div class="purchase-date">
+            <%= nft.purchase_date %>
+          </div>
         </div>
-        <div class="purchase-date">
-          <%= nft.purchase_date %>
-        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
