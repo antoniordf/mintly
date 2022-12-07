@@ -11,14 +11,6 @@ class Collection < ApplicationRecord
                     tsearch: { prefix: true, any_word: true }
                   }
 
-  # def cost
-  #   cost = 0
-  #   nfts.each do |nft|
-  #     cost += nft.purchase_price * nft.purchase_quantity
-  #   end
-  #   return cost
-  # end
-
   def value_on_date(date)
     total = 0
     nfts.each do |nft|
@@ -34,13 +26,20 @@ class Collection < ApplicationRecord
   end
 
   def profit_and_loss(starting_date, end_date)
-    # raise
     value_on_date(end_date) - value_on_date(starting_date)
   end
 
   def profit_and_loss_percent(starting_date, end_date)
     (profit_and_loss(starting_date, end_date) / value_on_date(starting_date))
   end
+
+  # def cost
+  #   cost = 0
+  #   nfts.each do |nft|
+  #     cost += nft.purchase_price * nft.purchase_quantity
+  #   end
+  #   return cost
+  # end
 
   # def average_purchase_price
   #   cost / nfts_sum_quantity

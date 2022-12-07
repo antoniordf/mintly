@@ -6,6 +6,7 @@ class Portfolio < ApplicationRecord
   has_many :nfts
 
   def value_on_date(date)
+
     total = 0
     nfts.each do |nft|
       next if nft.collection.histories.find_by(date_time: date).nil?
@@ -24,6 +25,6 @@ class Portfolio < ApplicationRecord
   end
 
   def profit_and_loss_percent(starting_date, end_date)
-    (profit_n_loss(starting_date, end_date) / value_on_date(starting_date))
+    (profit_and_loss(starting_date, end_date) / value_on_date(starting_date))
   end
 end
