@@ -15,11 +15,11 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && action_name != 'home' %>
       <%= render "shared/header" %>
     <% end %>
     <%= yield %>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && action_name != 'home'%>
       <%= render "shared/navbar" %>
     <% end %>
   </body>
