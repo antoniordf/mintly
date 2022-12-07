@@ -66,7 +66,7 @@
     <h3>NFT Purchase History</h3>
     <br>
     <% @reversed_nfts_collections.each do |nft|  %>
-      <div class="linkbox-purchased">
+      <div class="linkbox-purchased" data-aos="fade-up">
         <div class="collection-image" style="background-image: url('<%= nft.collection.image %>');">
         </div>
         <div class="collection-details">
