@@ -59,11 +59,10 @@ class CollectionsController < ApplicationController
 
   def bulk_insert_prices(api_results)
     api_results.map do |api_result|
-
       {
         collection_id: params[:id],
         date_time: api_result["time"],
-        price: (api_result["min_price"].to_f / 1_000_000_000_000_000_000)
+        price: (api_result["avg_price"].to_f / 1_000_000_000_000_000_000)
       }
     end
   end
