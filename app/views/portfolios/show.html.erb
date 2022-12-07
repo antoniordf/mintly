@@ -36,8 +36,10 @@
 
 <div class="pnl-container">
   <div class="portfolio-pnl">
-    <% pnl = @portfolio.profit_and_loss_percent(@portfolio.nfts.first.purchase_date, Date.today) %>
-    <p>Lifetime Profit and Loss: <%= number_to_percentage(pnl*100, precision: 2) %></p>
+    <% unless @portfolio.nfts.empty? %>
+      <% pnl = @portfolio.profit_and_loss_percent(@portfolio.nfts.first.purchase_date, Date.today) %>
+      <p>Lifetime Profit and Loss: <%= number_to_percentage(pnl*100, precision: 2) %></p>
+    <% end %>
   </div>
 </div>
 
