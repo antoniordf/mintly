@@ -22,7 +22,7 @@ class NftsController < ApplicationController
     end
 
     if @nft.save!
-      redirect_to root_path
+      redirect_to portfolio_path(current_user.portfolio)
     else
       render :new, status: :unprocessable_entity
     end
