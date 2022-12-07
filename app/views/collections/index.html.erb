@@ -11,7 +11,7 @@
   </div>
   <% @collections.each do |collection|  %>
     <%= link_to collection_path(collection) do %>
-    <div class="linkbox">
+    <div class="linkbox" data-aos="fade-up">
       <div class="collection-image" style="background-image: url('<%= collection.image == "placeholder" ? image_path('eth_logo.png') : collection.image%>');">
       </div>
       <div class="collection-details">

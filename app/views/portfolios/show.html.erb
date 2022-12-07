@@ -58,7 +58,7 @@
     <div class="portfolio-holdings">
       <% @portfolio.collections.each do |collection| %>
         <%= link_to collection_path(collection) do %>
-          <div class="card-homepage">
+          <div class="card-homepage" data-aos="fade-up">
             <div class="image-homepage" style="background-image: url('<%= collection.image %>');">
             </div>
             <div class="collection-details">
