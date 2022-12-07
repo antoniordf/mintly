@@ -17,7 +17,7 @@
         <% unless @data[Date.today].nil? %>
           <%= @data[Date.today].round(2) %>
         <% else %>
-          NIL
+          -
         <% end %>
       </h2>
     </div>
@@ -74,7 +74,7 @@
                 <i class="fa-brands fa-ethereum"><% unless collection.histories.last.nil? %>
                     <%= collection.histories.last.price.round(2) %>
                   <% else %>
-                    NIL
+                    -
                   <% end %></i>
               </div>
               <div class="price-change">
