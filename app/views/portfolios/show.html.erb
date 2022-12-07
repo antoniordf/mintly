@@ -35,16 +35,16 @@
 </div>
 
 <div class="pnl-container">
-  <div class="portfolio-pnl">
     <% unless @portfolio.nfts.empty? %>
-      <% avg_nft_price_all = @portfolio.nfts.pluck(:purchase_price).sum / @portfolio.nfts.count %>
-      <% prices= [] %>
-      <% @portfolio.collections.each { |collection| prices << collection.histories.last.price}  %>
-      <% avg_floor_price = prices.sum / @portfolio.collections.count %>
-      <% pnl = (avg_floor_price - avg_nft_price_all) / avg_nft_price_all * 100 %>
-      <p>Lifetime Profit and Loss: <%= number_to_percentage(pnl, precision: 2) %></p>
+      <div class="portfolio-pnl">
+        <% avg_nft_price_all = @portfolio.nfts.pluck(:purchase_price).sum / @portfolio.nfts.count %>
+        <% prices= [] %>
+        <% @portfolio.collections.each { |collection| prices << collection.histories.last.price}  %>
+        <% avg_floor_price = prices.sum / @portfolio.collections.count %>
+        <% pnl = (avg_floor_price - avg_nft_price_all) / avg_nft_price_all * 100 %>
+        <p>Lifetime Profit and Loss: <%= number_to_percentage(pnl, precision: 2) %></p>
+      </div>
     <% end %>
-  </div>
 </div>
 
 <div class="container-portfolio">
