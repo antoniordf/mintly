@@ -1,5 +1,6 @@
 <div class="m-card">
-  <h1>Add Purchase for <%= @collection.name %></h1>
+  <h1>Add Your NFT from</h1>
+  <h1><%= @collection.name %> </h1>
   <%= simple_form_for [@collection, @nft] do |f| %>
     <div class="white-text">
       <%= f.input :name %>
