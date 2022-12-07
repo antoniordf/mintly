@@ -53,6 +53,7 @@ class CollectionsController < ApplicationController
     else
       @collection.histories
     end
+    @reversed_nfts_collections = @collection.nfts.where(portfolio: current_user.portfolio).reverse
   end
 
   private

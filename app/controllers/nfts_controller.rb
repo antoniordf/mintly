@@ -2,7 +2,7 @@ class NftsController < ApplicationController
   before_action :find_collection
 
   def index
-    @nfts = Nft.all
+    @nfts = Nft.where(portfolio: current_user.portfolio)
   end
 
   def show
