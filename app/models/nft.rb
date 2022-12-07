@@ -4,4 +4,6 @@ class Nft < ApplicationRecord
   end
   belongs_to :collection
   belongs_to :portfolio
+
+  validates :purchase_date, :purchase_price, presence: true
 end
