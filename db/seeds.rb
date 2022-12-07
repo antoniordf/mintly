@@ -57,14 +57,19 @@ collections.each do |collection|
 
   next if items.nil?
 
-  items.each do |item|
-    if item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
-      item["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
-    end
+  # items.each do |item|
+  #   if item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
+  #     item["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
+  #   end
 
+  #   History.create!(collection: Collection.last,
+  #                   date_time: item["time"],
+  #                   price: item["min_price"].to_f / 1_000_000_000_000_000_000)
+  # end
+  items.each do |item|
     History.create!(collection: Collection.last,
                     date_time: item["time"],
-                    price: item["min_price"].to_f / 1_000_000_000_000_000_000)
+                    price: item["avg_price"].to_f / 1_000_000_000_000_000_000)
   end
 end
 
