@@ -25,6 +25,9 @@
           <% end %>
         </h2>
       </div>
+      <div class="add-btn">
+        <%= link_to "Add", new_collection_nft_path(@collection), data:{turbo_method: :get} %>
+      </div>
     </div>
     <%= area_chart(
         @collection
