@@ -60,7 +60,7 @@ collections.each do |collection|
   next if items.nil?
 
   items.each do |item|
-    if item["min_price"].to_i * 1.8 < price_history["included"][0]["attributes"]["avg_price"].to_i
+    if item["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
       item["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
     end
 

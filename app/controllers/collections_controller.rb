@@ -41,6 +41,14 @@ class CollectionsController < ApplicationController
       else
         data = results["included"][0]["attributes"]["history"]
       end
+
+      # results = price_history["included"][1]["attributes"]["history"]
+      # next if results.nil?
+      # results.each do |result|
+      # if result["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
+      #   result["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
+      # end
+
       History.insert_all(bulk_insert_prices(data))
     else
       @collection.histories
@@ -51,6 +59,7 @@ class CollectionsController < ApplicationController
 
   def bulk_insert_prices(api_results)
     api_results.map do |api_result|
+
       {
         collection_id: params[:id],
         date_time: api_result["time"],
