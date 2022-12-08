@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
       if Collection.search_by_name(params[:query]).present?
         @collections = Collection.search_by_name(params[:query])
       else
-        url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[name]=#{params[:query]}", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
+        url_metadata = RestClient.get "https://api.rarify.tech/data/contracts?filter[name]=#{params[:query]}", { Authorization: "Bearer #{ENV["RARIFY_API_KEY"]}" }
         results = JSON.parse(url_metadata)["data"]
         results_with_image = []
         results.each do |a|
@@ -34,20 +34,13 @@ class CollectionsController < ApplicationController
   def show
     @collection = Collection.find(params[:id])
     if @collection.histories.empty?
-      url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{@collection.contract_id}/insights/90d", { Authorization: 'Bearer 6d42ff96-f7b6-4abd-8c87-b097789b71d5' }
+      url_price_history = RestClient.get "https://api.rarify.tech/data/contracts/#{@collection.contract_id}/insights/90d", { Authorization: "Bearer #{ENV["RARIFY_API_KEY"]}" }
       results = JSON.parse(url_price_history)
       if results["included"][0]["attributes"]["history"].nil?
         data = results["included"][1]["attributes"]["history"]
       else
         data = results["included"][0]["attributes"]["history"]
       end
-
-      # results = price_history["included"][1]["attributes"]["history"]
-      # next if results.nil?
-      # results.each do |result|
-      # if result["min_price"].to_i * 2 < price_history["included"][0]["attributes"]["avg_price"].to_i
-      #   result["min_price"] = price_history["included"][0]["attributes"]["avg_price"]
-      # end
 
       History.insert_all(bulk_insert_prices(data))
     else
