@@ -54,10 +54,12 @@
   <h3>Description:</h3>
   <p><%= @collection.description %></p>
   <br>
-  <% unless @collection.link.nil? %>
-    <h3>Link to collection website:</h3>
-    <a href="<%= @collection.link %>"><%= @collection.link %></a>
-  <% end %>
+  <div class="collection-link">
+    <% unless @collection.link.nil? %>
+      <h3>Link to collection website:</h3>
+      <a href="<%= @collection.link %>"><%= @collection.link %></a>
+    <% end %>
+  </div>
 
   <br>
   <br>
