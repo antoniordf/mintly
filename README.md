@@ -1,4 +1,5 @@
-About the project
+<h3>About the project</h3>
+
 Mintly is an App designed to help NFT collectors monitor the value of their NFT portfolio. Without an app to track the NFTs, users would be required to keep a spreasheet and manually bring in price data on a daily basis. With mintly all that is done in the background via API calls to price oracles. The app calculates the PnL of each purchase as well as the PnL of the overall portfolio. ✨ Future features on the works: Optimising database calls to make the app faster; automated price refresh in the background and more real time data; connecting to crypto exchanges and wallets to download assets and positions automatically without necessity to input them manually. ✨
 
 Versions
